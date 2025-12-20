@@ -11,7 +11,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestUDP(t *testing.T) {
+func TestUDPWorks(t *testing.T) {
 	// create config
 	config := NewHandlerConfig()
 	config.AddNetipAddr("www.example.com", netip.MustParseAddr("104.20.34.220"))

@@ -11,7 +11,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestTCP(t *testing.T) {
+func TestTCPWorks(t *testing.T) {
 	// create config
 	config := NewHandlerConfig()
 	config.AddNetipAddr("www.example.com", netip.MustParseAddr("2606:4700::6812:1a78"))
