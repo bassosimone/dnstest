@@ -81,7 +81,7 @@ func (hh HTTPSHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	rawQuery := runtimex.PanicOnError1(io.ReadAll(req.Body))
 	query := &dns.Msg{}
 	runtimex.PanicOnError0(query.Unpack(rawQuery))
-	resp := hh.Handler.Respond(query)
+	resp := hh.Handler.PrepareResponse(query)
 	rawResp := runtimex.PanicOnError1(resp.Pack())
 	w.Header().Set("content-type", "application/dns-message")
 	w.Write(rawResp)

@@ -142,11 +142,11 @@ var _ dns.Handler = &Handler{}
 
 // ServeDNS implements [dns.Handler].
 func (h *Handler) ServeDNS(rw dns.ResponseWriter, query *dns.Msg) {
-	rw.WriteMsg(h.Respond(query))
+	rw.WriteMsg(h.PrepareResponse(query))
 }
 
-// Response returns a [*dns.Msg] response for the given [*dns.Msg] query.
-func (h *Handler) Respond(query *dns.Msg) *dns.Msg {
+// PrepareResponse returns a [*dns.Msg] response for the given [*dns.Msg] query.
+func (h *Handler) PrepareResponse(query *dns.Msg) *dns.Msg {
 	// 1. reject blatantly wrong queries
 	if query.Response || len(query.Question) != 1 {
 		resp := &dns.Msg{}
@@ -191,10 +191,10 @@ func (h *Handler) Respond(query *dns.Msg) *dns.Msg {
 				// so Config.Lookup only returns CNAME records.
 				qName = records[0].(*dns.CNAME).Target
 
-			// 3.3.3. otherwise, NXDOMAIN
+			// 3.3.3. otherwise, NOERROR (name exists but type not found)
 			default:
 				resp := &dns.Msg{}
-				resp.SetRcode(query, dns.RcodeNameError)
+				resp.SetReply(query) // NOERROR, empty answer
 				return resp
 			}
 

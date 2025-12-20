@@ -5,25 +5,11 @@ package dnstest
 import (
 	"net"
 	"net/netip"
-	"slices"
 	"testing"
 
 	"github.com/miekg/dns"
 	"github.com/stretchr/testify/assert"
 )
-
-func collectAddrs(resp *dns.Msg) (output []string) {
-	for _, rec := range resp.Answer {
-		switch rec := rec.(type) {
-		case *dns.A:
-			output = append(output, rec.A.String())
-		case *dns.AAAA:
-			output = append(output, rec.AAAA.String())
-		}
-	}
-	slices.Sort(output)
-	return
-}
 
 func TestUDP(t *testing.T) {
 	// create config
