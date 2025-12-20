@@ -31,7 +31,7 @@ srv := dnstest.MustNewTCPServer(&net.ListenConfig{}, "127.0.0.1:0", handler)
 log.Print(srv.Address()) // TCP address to use
 
 // 3c. create DNS-over-TLS server
-cert := tls.Certificate{} // TODO: configure
+cert := tls.Certificate{} // TODO: configure using e.g. github.com/bassosimone/pkitest
 srv := dnstest.MustNewTLSServer(&net.ListenConfig{}, "127.0.0.1:0", cert, handler)
 log.Print(srv.Address()) // TCP address to use
 
