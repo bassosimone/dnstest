@@ -3,12 +3,13 @@
 [![GoDoc](https://pkg.go.dev/badge/github.com/bassosimone/dnstest)](https://pkg.go.dev/github.com/bassosimone/dnstest) [![Build Status](https://github.com/bassosimone/dnstest/actions/workflows/go.yml/badge.svg)](https://github.com/bassosimone/dnstest/actions) [![codecov](https://codecov.io/gh/bassosimone/dnstest/branch/main/graph/badge.svg)](https://codecov.io/gh/bassosimone/dnstest)
 
 The `dnstest` Go package is like [net/http/httptest](https://pkg.go.dev/net/http/httptest)
-but focuses on testing DNS clients using various protocols.
+but helps testing DNS clients using various protocols.
 
 Basic usage is like:
 
 ```Go
 import (
+	"crypto/tls"
 	"log"
 	"net"
 
@@ -21,21 +22,21 @@ config.AddCNAME("www.example.com", "example.com")
 config.AddNetipAddr("example.com", netip.MustParseAddr("104.20.34.220"))
 handler := dnstest.NewHandler(config)
 
-// 2a. DNS-over-UDP server
-srv := MustNewUDPServer(&net.ListenConfig{}, "127.0.0.1:0", handler)
+// 2a. create DNS-over-UDP server
+srv := dnstest.MustNewUDPServer(&net.ListenConfig{}, "127.0.0.1:0", handler)
 log.Print(srv.Address()) // UDP address to use
 
 // 3b. DNS-over-TCP server
-srv := MustNewTCPServer(&net.ListenConfig{}, "127.0.0.1:0", handler)
+srv := dnstest.MustNewTCPServer(&net.ListenConfig{}, "127.0.0.1:0", handler)
 log.Print(srv.Address()) // TCP address to use
 
-// 3c. DNS-over-TLS server
+// 3c. create DNS-over-TLS server
 cert := tls.Certificate{} // TODO: configure
-srv := MustNewTLSServer(&net.ListenConfig{}, "127.0.0.1:0", cert, handler)
+srv := dnstest.MustNewTLSServer(&net.ListenConfig{}, "127.0.0.1:0", cert, handler)
 log.Print(srv.Address()) // TCP address to use
 
-// 3d. DNS-over-HTTPS server
-srv := MustNewHTTPSServer(&net.ListenConfig{}, "127.0.0.1:0", cert, handler)
+// 3d. create DNS-over-HTTPS server
+srv := dnstest.MustNewHTTPSServer(&net.ListenConfig{}, "127.0.0.1:0", cert, handler)
 log.Print(srv.URL()) // URL to use
 
 // 4. Close when done
@@ -49,8 +50,7 @@ defer srv.Close()
 - **Supports multiple query types:** Currently, A, AAAA, and CNAME.
 
 - **Compatible with pkitest:** Can use [github.com/bassosimone/pkitest](
-https://pkg.go.dev/github.com/bassosimone/pkitest) to generate self-signed
-certificates and cert pools.
+https://pkg.go.dev/github.com/bassosimone/pkitest) to generate self-signed certs.
 
 - **Concurrency safe:** Safe for concurrent use in parallel tests.
 
