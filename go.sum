@@ -1,5 +1,5 @@
-github.com/bassosimone/pkitest v0.0.0-20251218111451-e3ac30bb1628 h1:8NFclZzz4YTQ9EjgwfPHA5k67c0MZAmAYDfDS/YAlCo=
-github.com/bassosimone/pkitest v0.0.0-20251218111451-e3ac30bb1628/go.mod h1:E5JHCKyWUNHuaeIVILFQe0+xT5VRoy5sNfTe9BZBFv4=
+github.com/bassosimone/pkitest v0.0.0-20260108162522-4e97d4738e31 h1:bWrYpMtPO3efLcYHqX9Z3mHmV0MGAE8uaJ1fJaEV2RE=
+github.com/bassosimone/pkitest v0.0.0-20260108162522-4e97d4738e31/go.mod h1:SnA6v5F2KSxICuaiLsxJ54mqZgV/NpuuZtqNdVkcafo=
 github.com/bassosimone/runtimex v0.0.0-20260108162100-336f3823f6b7 h1:9qKFMaKc84pZ1i7FMUGLMqo56rv4miCd4/+qlH9SWDI=
 github.com/bassosimone/runtimex v0.0.0-20260108162100-336f3823f6b7/go.mod h1:GDr46yuJzuDkzOMI1/9Voo3s7VmYBU/6pkuaI5FR7gE=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
