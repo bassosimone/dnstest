@@ -3,8 +3,8 @@ module github.com/bassosimone/dnstest
 go 1.25.5
 
 require (
-	github.com/bassosimone/pkitest v0.0.0-20260108162522-4e97d4738e31
-	github.com/bassosimone/runtimex v0.0.0-20260108162100-336f3823f6b7
+	github.com/bassosimone/pkitest v0.0.0-20260426214024-1be367af2507
+	github.com/bassosimone/runtimex v0.0.0-20260426205938-f859235d82e0
 	github.com/miekg/dns v1.1.72
 	github.com/stretchr/testify v1.11.1
 )
@@ -13,10 +13,10 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
-	golang.org/x/mod v0.34.0 // indirect
-	golang.org/x/net v0.52.0 // indirect
+	golang.org/x/mod v0.35.0 // indirect
+	golang.org/x/net v0.53.0 // indirect
 	golang.org/x/sync v0.20.0 // indirect
-	golang.org/x/sys v0.42.0 // indirect
-	golang.org/x/tools v0.43.0 // indirect
+	golang.org/x/sys v0.43.0 // indirect
+	golang.org/x/tools v0.44.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
