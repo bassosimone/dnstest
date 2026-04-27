@@ -9,6 +9,7 @@ import (
 	"net"
 	"net/http"
 	"net/http/httptest"
+	"time"
 
 	"github.com/bassosimone/runtimex"
 	"github.com/miekg/dns"
@@ -22,13 +23,24 @@ type HTTPSListenConfig interface {
 // Ensure that [*net.ListenConfig] implements [HTTPSListenConfig].
 var _ HTTPSListenConfig = &net.ListenConfig{}
 
+// newUnstartedServer creates an httptest.Server with timeouts so that in-flight handlers
+// cannot block Close() forever when the underlying gVisor stack tears down.
+func newUnstartedServer(handler http.Handler) *httptest.Server {
+	httpSrv := httptest.NewUnstartedServer(handler)
+	httpSrv.Config.ReadHeaderTimeout = 5 * time.Second
+	httpSrv.Config.ReadTimeout = 30 * time.Second
+	httpSrv.Config.WriteTimeout = 30 * time.Second
+	httpSrv.Config.IdleTimeout = 30 * time.Second
+	return httpSrv
+}
+
 // MustNewHTTPSServer returns a new [*HTTPSServer] ready to use.
 //
 // This method PANICS on failure.
 func MustNewHTTPSServer(
 	lc HTTPSListenConfig, address string, cert tls.Certificate, handler *Handler) *HTTPSServer {
 	listener := runtimex.PanicOnError1(lc.Listen(context.Background(), "tcp", address))
-	hs := httptest.NewUnstartedServer(HTTPSHandler{handler})
+	hs := newUnstartedServer(HTTPSHandler{handler})
 	hs.Listener = listener
 	hs.TLS = &tls.Config{
 		Certificates: []tls.Certificate{cert},
