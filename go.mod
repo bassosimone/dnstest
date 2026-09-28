@@ -3,8 +3,8 @@ module github.com/bassosimone/dnstest
 go 1.26.0
 
 require (
-	github.com/bassosimone/pkitest v0.0.0-20260920134538-44dc9051d09a
-	github.com/bassosimone/runtimex v0.0.0-20260920130843-b72080259a60
+	github.com/bassosimone/pkitest v0.0.0-20260928112139-c2ca7e68520a
+	github.com/bassosimone/runtimex v0.0.0-20260928111457-f2fe934d5065
 	github.com/miekg/dns v1.1.73
 	github.com/stretchr/testify v1.12.1
 )
