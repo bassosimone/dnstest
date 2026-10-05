@@ -1,7 +1,7 @@
-github.com/bassosimone/pkitest v0.0.0-20260928112139-c2ca7e68520a h1:4GH9qDsexyElM8jPHVVWoYj1NJJJ/hR1LDqFk15ziNo=
-github.com/bassosimone/pkitest v0.0.0-20260928112139-c2ca7e68520a/go.mod h1:8yycIHyEq14IvdJOEhj4/GK1+hM+VTF0rhtmkCCi7FA=
-github.com/bassosimone/runtimex v0.0.0-20260928111457-f2fe934d5065 h1:kTLEe+4NAR6bH3XZHNxegfwUKKDArQHoJCQhrFQNZOU=
-github.com/bassosimone/runtimex v0.0.0-20260928111457-f2fe934d5065/go.mod h1:2aW76skIZNS7ljOpIqU3eARVLmtb0AG/Gab4aegSkTA=
+github.com/bassosimone/pkitest v0.0.0-20261005145452-7b85881f912d h1:sSnMO31joutMWujPwqs+scoRN5twRObMkk2XZRN71aE=
+github.com/bassosimone/pkitest v0.0.0-20261005145452-7b85881f912d/go.mod h1:2KJWmQuaY/fn7rrufVu3EwbfqO5Py+oNj3ln9WknUmE=
+github.com/bassosimone/runtimex v0.0.0-20261005144844-77dc639b0e90 h1:crpeakr4bPQGTsV25nbtVXB72cwfk1wnZc2HF3fE1KE=
+github.com/bassosimone/runtimex v0.0.0-20261005144844-77dc639b0e90/go.mod h1:2aW76skIZNS7ljOpIqU3eARVLmtb0AG/Gab4aegSkTA=
 github.com/miekg/dns v1.1.73 h1:uhT8nJxmTrPJYClxVxTCX+CVn6qnzSiybRk72Z6DgrE=
 github.com/miekg/dns v1.1.73/go.mod h1:RW2Obtfd5NZHvOFe3zYG0W8koWOQtAzyHaLo8vASBuQ=
 github.com/rogpeppe/go-internal v1.16.0 h1:O9DK+vNMDVGLr2BeZqmpLeMjiMNkuXfcqntWbZV6S5g=
